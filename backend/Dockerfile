@@ -1,15 +1,11 @@
 FROM node:18
 
 WORKDIR /app
-
 COPY . .
 
 RUN npm install
-
-# Tambahkan ini untuk memastikan nest bisa dieksekusi
-RUN npm install -g @nestjs/cli
-
 RUN npm run build
 
-CMD ["node", "dist/main"]
+EXPOSE 5000
 
+CMD ["node", "dist/main"]
